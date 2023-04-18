@@ -1,0 +1,134 @@
+#! /storenext/inhouse/tool/rez-packages/nuke/12.2.2/platform-linux/arch-x86_64/nuke/libnuke-12.2.2.so -nx
+version 12.2 v2
+Gizmo {
+ addUserKnob {20 Info}
+ addUserKnob {41 slate_path l gizmo_dir T NoOp1.slate_path}
+ addUserKnob {41 project_name T NoOp1.project_name}
+ addUserKnob {41 file_name T NoOp1.file_name}
+ addUserKnob {41 task T NoOp1.task}
+ addUserKnob {41 description T NoOp1.description}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos -576
+  ypos -247
+ }
+ NoOp {
+  name NoOp1
+  xpos -577
+  ypos -199
+  addUserKnob {20 User}
+  addUserKnob {1 slate_path l gizmo_dir}
+  slate_path ~/.nuke
+  addUserKnob {1 file_name}
+  file_name S001_0010_comp_v001
+  addUserKnob {1 project_name}
+  project_name Westworld
+  addUserKnob {1 task}
+  task mm
+  addUserKnob {1 description}
+  description 웨스트월드
+ }
+ Reformat {
+  type scale
+  name rendersize
+  xpos -577
+  ypos -149
+ }
+ Reformat {
+  type "to box"
+  format "2048 900 0 0 2048 900 1 i_CZ"
+  box_width {{parent.rendersize.width x140 2094}}
+  box_height {{parent.rendersize.height+80}}
+  box_fixed true
+  black_outside true
+  name Reformat1
+  xpos -461
+  ypos -138
+ }
+ Text {
+  opacity 0.3
+  message "\[frame] "
+  font "\[value NoOp1.slate_path]/font/mono.ttf"
+  size {{parent.rendersize.width>1280?34:20}}
+  yjustify top
+  Transform 1
+  box {25 0 {parent.rendersize.width} 36}
+  name frame
+  xpos -454
+  ypos -54
+ }
+ Text {
+  opacity 0.3
+  message "\[value NoOp1.project_name]"
+  font "\[value NoOp1.slate_path]/font/han01.ttf"
+  size {{parent.rendersize.width>1280?32:20}}
+  xjustify center
+  yjustify bottom
+  Transform 1
+  box {{parent.rendersize.width/2} {parent.rendersize.width+40} {parent.rendersize.width/2} {parent.rendersize.height+40}}
+  center {1024 486}
+  name name
+  xpos -454
+  ypos 5
+ }
+ Text {
+  opacity 0.3
+  message "\[value NoOp1.task] "
+  font "\[value NoOp1.slate_path]/font/han01.ttf"
+  size {{parent.rendersize.width>1280?32:20}}
+  xjustify right
+  yjustify center
+  Transform 1
+  box {{parent.rendersize.width} 0 {parent.rendersize.width-500 x1001 1153} 40}
+  center {1024 486}
+  name User_info
+  xpos -454
+  ypos 61
+ }
+ Text {
+  opacity 0.3
+  message "\[value NoOp1.file_name]"
+  font "\[value NoOp1.slate_path]/font/FreeSans.ttf"
+  size {{parent.rendersize.width>1280?32:20}}
+  yjustify bottom
+  Transform 1
+  box {25 {parent.rendersize.height+80 x101 307} 1022 {parent.rendersize.height+40 x101 267}}
+  name ShotName
+  xpos -454
+  ypos 130
+ }
+ Text {
+  opacity 0.3
+  message "\[clock format \[clock seconds] -format \{%Y/%m/%d %H:%M\}] "
+  font "\[value NoOp1.slate_path]/font/FreeSans.ttf"
+  size {{parent.rendersize.width>1280?32:20}}
+  xjustify right
+  yjustify bottom
+  Transform 1
+  box {{parent.rendersize.width-350} {parent.rendersize.height+80} {parent.rendersize.width} {parent.rendersize.height+40}}
+  name date
+  xpos -454
+  ypos 194
+ }
+ Text {
+  opacity 0.3
+  message " \[value NoOp1.description]"
+  font "\[value NoOp1.slate_path]/font/han01.ttf"
+  size {{parent.rendersize.width>1280?32:20}}
+  xjustify center
+  yjustify center
+  Transform 1
+  box {300 0 {parent.rendersize.width-400} 40}
+  name note
+  selected true
+  xpos -454
+  ypos 226
+ }
+ Output {
+  name Output1
+  xpos -454
+  ypos 326
+ }
+end_group
