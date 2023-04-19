@@ -2,6 +2,7 @@
 version 12.2 v2
 Gizmo {
  addUserKnob {20 Info}
+ addUserKnob {41 slate_path l "gizmo dir" T NoOp1.slate_path}
  addUserKnob {41 project_name T NoOp1.project_name}
  addUserKnob {41 file_name T NoOp1.file_name}
  addUserKnob {41 task T NoOp1.task}
@@ -15,7 +16,8 @@ Gizmo {
  }
  NoOp {
   name NoOp1
-  xpos -577
+  selected true
+  xpos -576
   ypos -199
   addUserKnob {20 User}
   addUserKnob {2 slate_path l "gizmo dir"}
