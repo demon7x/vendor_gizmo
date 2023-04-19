@@ -1,8 +1,7 @@
-#! /storenext/inhouse/tool/rez-packages/nuke/12.2.2/platform-linux/arch-x86_64/nuke/libnuke-12.2.2.so -nx
+#! /usr/local/Nuke12.2v2/libnuke-12.2.2.so -nx
 version 12.2 v2
 Gizmo {
  addUserKnob {20 Info}
- addUserKnob {41 slate_path l gizmo_dir T NoOp1.slate_path}
  addUserKnob {41 project_name T NoOp1.project_name}
  addUserKnob {41 file_name T NoOp1.file_name}
  addUserKnob {41 task T NoOp1.task}
@@ -19,7 +18,7 @@ Gizmo {
   xpos -577
   ypos -199
   addUserKnob {20 User}
-  addUserKnob {1 slate_path l gizmo_dir}
+  addUserKnob {2 slate_path l "gizmo dir"}
   slate_path ~/.nuke
   addUserKnob {1 file_name}
   file_name S001_0010_comp_v001
@@ -122,7 +121,6 @@ Gizmo {
   Transform 1
   box {300 0 {parent.rendersize.width-400} 40}
   name note
-  selected true
   xpos -454
   ypos 226
  }
